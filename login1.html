@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epic xdev Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a001a 0%, #1a0033 100%);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 24rem;
+      width: 100%;
+      margin: 1rem;
+      animation: fadeInContainer 1s ease-out forwards;
+    }
+    .title-glow {
+      text-shadow: 0 0 10px rgba(147, 51, 234, 0.8), 0 0 20px rgba(147, 51, 234, 0.5);
+      animation: pulseTitle 2s infinite ease-in-out;
+    }
+    .input-field {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      border-radius: 8px;
+      padding: 0.75rem;
+      color: #fff;
+      width: 100%;
+      font-size: 1rem;
+      opacity: 1;
+      animation: fadeInInput 0.8s ease-out 0.3s forwards;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .input-field:focus {
+      outline: none;
+      border-color: #d946ef;
+      box-shadow: 0 0 12px rgba(147, 51, 234, 0.7);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .input-field::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+    .input-field::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.3), transparent);
+      transition: 0.5s;
+    }
+    .input-field:focus::after {
+      left: 100%;
+    }
+    .btn-glow {
+      background: linear-gradient(45deg, #9333ea, #d946ef);
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem;
+      color: #fff;
+      font-weight: 600;
+      width: 100%;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      animation: fadeInInput 0.8s ease-out 0.5s forwards;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 15px rgba(147, 51, 234, 0.8);
+      transform: translateY(-2px);
+    }
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+    .btn-glow:hover::before {
+      left: 100%;
+    }
+    .bg-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(147, 51, 234, 0.2) 0%, transparent 70%);
+      z-index: 0;
+    }
+    @keyframes fadeInContainer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInInput {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes pulseTitle {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(147, 51, 234, 0.8), 0 0 20px rgba(147, 51, 234, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 15px rgba(147, 51, 234, 1), 0 0 30px rgba(147, 51, 234, 0.7);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="login-container relative z-10">
+    <h1 class="title-glow text-4xl font-extrabold text-center text-purple-400 mb-8">xdev</h1>
+    <div class="space-y-6">
+      <input type="text" placeholder="Username" class="input-field">
+      <input type="password" placeholder="Password" class="input-field">
+      <button class="btn-glow">Sign In</button>
+    </div>
+  </div>
+</body>
+</html>
